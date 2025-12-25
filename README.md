@@ -8,7 +8,7 @@ The tools are for educational and ethical security research purposes only. The a
 You will need to compile the tools to be able to run them.
 ```bash
 gcc tool_name -o output_name
-
+```
 All tools include built-in examples. To view them, simply run the tools without any arguments.
 ```bash
 ./tool_name
