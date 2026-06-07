@@ -16,14 +16,21 @@ int main(int argc, char *argv[]){
 
 		int port;
 
-		for(port = 0; port < 65535; port++){
+		// Starting at port 1 and including 65535
+		for(port = 1; port <= 65535; port++){
 			target.sin_port = htons(port);
 
 			int sock = socket(AF_INET, SOCK_STREAM, 0);
+			
+			// Checking if socket creation was successful
+			if (sock < 0) {
+				continue;
+			}
 
 			if(connect(sock, (struct sockaddr *)&target, sizeof(target)) == 0){
 				printf("PORT %d [OPEN]\n", port);
 			}
+			
 			close(sock);
 		}
 
